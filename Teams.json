@@ -1,0 +1,187 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "Microsoft Graph API",
+    "version": "1.0.0",
+    "title": "Microsoft"
+  },
+  "host": "api-test.roullier.com",
+  "tags": [
+    {
+      "name": "Groups",
+      "description": "Operations about Groups"
+    },
+    {
+      "name": "Users",
+      "description": "Operations about Users"
+    },
+    {
+      "name": "Teams",
+      "description": "Operations about Teams"
+    },
+    {
+      "name": "Planner",
+      "description": "Operations about Planner"
+    }
+  ],
+  "schemes": [
+    "https"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/msgraph/v1.0/me": {
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "description": "Me",
+        "operationId": "me",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          }
+        }
+      }
+    },
+    "/msgraph/beta/me": {
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "description": "Me Detail",
+        "operationId": "detail",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/UserDetail"
+            }
+          }
+        }
+      }
+    },
+    "/msgraph/v1.0/users/{upn}/photo/$value": {
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "description": "Get user photo",
+        "operationId": "getPhoto",
+        "parameters": [
+          {
+            "name": "upn",
+            "in": "path",
+            "description": "upn",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "string",
+              "format": "binary"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "User": {
+      "type": "object",
+      "properties": {
+        "@odata.id": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "displayName": {
+          "type": "string"
+        },
+        "userPrincipalName": {
+          "type": "string"
+        }
+      },
+      "description": "Model for User"
+    },
+    "UserDetail": {
+      "type": "object",
+      "properties": {
+        "@odata.id": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "accountEnabled": {
+          "type": "boolean"
+        },
+        "companyName": {
+          "type": "string"
+        },
+        "country": {
+          "type": "string"
+        },
+        "department": {
+          "type": "string"
+        },
+        "displayName": {
+          "type": "string"
+        },
+        "employeeId": {
+          "type": "string"
+        },
+        "employeeHireDate": {
+          "type": "string"
+        },
+        "givenName": {
+          "type": "string"
+        },
+        "jobTitle": {
+          "type": "string"
+        },
+        "mail": {
+          "type": "string"
+        },
+        "mailNickname": {
+          "type": "string"
+        },
+        "mobilePhone": {
+          "type": "string"
+        },
+        "officeLocation": {
+          "type": "string"
+        },
+        "state": {
+          "type": "string"
+        },
+        "streetAddress": {
+          "type": "string"
+        },
+        "surname": {
+          "type": "string"
+        },
+        "userPrincipalName": {
+          "type": "string"
+        },
+        "usageLocation": {
+          "type": "string"
+        }
+      },
+      "description": "Details User"
+    }
+  }
+}
